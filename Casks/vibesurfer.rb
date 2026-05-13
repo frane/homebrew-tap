@@ -5,19 +5,20 @@ cask "vibesurfer" do
 
   on_macos do
     on_arm do
-      sha256 "69cf04353fcaa67eea6705edca9dce0ec931aa8dba93afcf378dd00d5beee66b"
+      sha256 "fb50907a4394f6f7b8ea399acbb141654037919df3427ee0e68dda447717eb04"
       url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-aarch64-apple-darwin.tar.gz",
         verified: "github.com/frane/vibesurfer"
     end
-    # x86_64 darwin is still pending: the macos-13 runner queue has
-    # not allocated for v0.1.0 or v0.1.1 within the workflow window.
-    # Apple Silicon users get the cask; Intel Mac users fall back to
-    # install.sh or `cargo install --path crates/vs-cli`.
+    on_intel do
+      sha256 "6137763f3a5eed012546e8e19767893ded03e86ad54ccdf7f058c45e464f2df2"
+      url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-x86_64-apple-darwin.tar.gz",
+        verified: "github.com/frane/vibesurfer"
+    end
   end
 
   on_linux do
     on_intel do
-      sha256 "76070539e3c225e0bbae7ac43dc07ec5a7c89f7306d337bfb4fe98dfd6fcd466"
+      sha256 "c783f643d243de10edad6535903620ce3e6ccee06c962684d5ce68980810f535"
       url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-x86_64-unknown-linux-gnu.tar.gz",
         verified: "github.com/frane/vibesurfer"
     end
