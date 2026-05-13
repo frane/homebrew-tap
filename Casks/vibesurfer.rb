@@ -1,28 +1,26 @@
-# Hand-authored for v0.1.0; future versions will regenerate this from
+# Hand-authored for v0.1.1. Future versions will regenerate this from
 # the release-pipeline outputs to mirror agented's GoReleaser flow.
 cask "vibesurfer" do
-  version "0.1.0"
+  version "0.1.1"
 
   on_macos do
     on_arm do
-      sha256 "e34033e6ab1bcfc77496608ffb5af238163ea61eb736b7d8541038e678dc6266"
+      sha256 "69cf04353fcaa67eea6705edca9dce0ec931aa8dba93afcf378dd00d5beee66b"
       url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-aarch64-apple-darwin.tar.gz",
         verified: "github.com/frane/vibesurfer"
     end
-    # x86_64 darwin build is added in a follow-up — the macos-13 runner
-    # queue stalled during v0.1.0's release pipeline. Apple Silicon
-    # users get the cask path; Intel Mac users fall back to install.sh
-    # or `cargo install --path crates/vs-cli` until the next release.
+    # x86_64 darwin is still pending: the macos-13 runner queue has
+    # not allocated for v0.1.0 or v0.1.1 within the workflow window.
+    # Apple Silicon users get the cask; Intel Mac users fall back to
+    # install.sh or `cargo install --path crates/vs-cli`.
   end
 
   on_linux do
     on_intel do
-      sha256 "727e09b39b695d66f3a845746227cdaf2dab75974685fed469bdb1ff7b1647c6"
+      sha256 "76070539e3c225e0bbae7ac43dc07ec5a7c89f7306d337bfb4fe98dfd6fcd466"
       url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-x86_64-unknown-linux-gnu.tar.gz",
         verified: "github.com/frane/vibesurfer"
     end
-    # Linux aarch64 is not built in v0.1.0's release pipeline — add in
-    # a follow-up if there's demand.
   end
 
   name "vibesurfer"
