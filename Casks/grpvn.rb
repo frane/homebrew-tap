@@ -1,14 +1,14 @@
 cask "grpvn" do
-  version "0.1.2"
+  version "0.1.3"
 
   on_macos do
     on_intel do
-      sha256 "2b65bff28d32d643165fa609dfa7dfd3d4d8f97daea7dbfc2b06226daf21f02c"
+      sha256 "8fd916057c5204677575049658e0c33a5a008caaf78f82da305011eb6708d185"
       url "https://github.com/frane/grpvn/releases/download/v#{version}/grpvn_#{version}_darwin_x86_64.tar.gz",
         verified: "github.com/frane/grpvn"
     end
     on_arm do
-      sha256 "14c6d897b5f762f155500937632c684e45662f48d5967821a81b47cb86544195"
+      sha256 "6024afa63ea23be030d4913cf86692203de575f270117125bacf42a5a36c48f3"
       url "https://github.com/frane/grpvn/releases/download/v#{version}/grpvn_#{version}_darwin_arm64.tar.gz",
         verified: "github.com/frane/grpvn"
     end
@@ -16,12 +16,12 @@ cask "grpvn" do
 
   on_linux do
     on_intel do
-      sha256 "4b7c20acfb366884971df6000d8d9e3a3383bdfd5b02a8b814c1ee65322ca249"
+      sha256 "221e32de6c7c62e026d0f0a194199cd164f340255de522fdcfa53cb635f9e2c4"
       url "https://github.com/frane/grpvn/releases/download/v#{version}/grpvn_#{version}_linux_x86_64.tar.gz",
         verified: "github.com/frane/grpvn"
     end
     on_arm do
-      sha256 "bf4ae993a44114ea668058c762e370997ca2f3f529d052276907074a8f258b25"
+      sha256 "6054862b1b3c6fd4870a0987ec8017fd27baea7741c3d0d716321b1527fa42e9"
       url "https://github.com/frane/grpvn/releases/download/v#{version}/grpvn_#{version}_linux_arm64.tar.gz",
         verified: "github.com/frane/grpvn"
     end
@@ -39,14 +39,9 @@ cask "grpvn" do
 
   postflight do
     if OS.mac?
-      # Release tarballs are not codesigned. Strip the quarantine xattr
-      # so macOS Sequoia Gatekeeper does not SIGKILL the binary on first
-      # invocation.
       system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/grpvn"]
     end
   end
-
-  # No zap stanza required
 
   caveats <<~EOS
     grpvn is a local-first peer chat substrate for AI agents. After install,
