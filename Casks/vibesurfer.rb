@@ -1,16 +1,16 @@
 # Hand-authored. Future versions will regenerate this from the
 # release-pipeline outputs to mirror agented's GoReleaser flow.
 cask "vibesurfer" do
-  version "0.1.14"
+  version "0.1.15"
 
   on_macos do
     on_arm do
-      sha256 "7c76edd3c2f7aed9ffe0ed5372eff84321607e9650dccde11c351da922e275b0"
+      sha256 "17d3db32338085adda77e45b91813cd3aa7b0c7aae4686a273fed66090d1e685"
       url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-aarch64-apple-darwin.tar.gz",
         verified: "github.com/frane/vibesurfer"
     end
     on_intel do
-      sha256 "ad0c876d375b20a26ca71cfa5269b1d0104955290e6df7dd03a6c62e75608705"
+      sha256 "fb6003b7dbb675c2e7f077e77e476f467c9f0351502919797114bbc77f0371a3"
       url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-x86_64-apple-darwin.tar.gz",
         verified: "github.com/frane/vibesurfer"
     end
@@ -18,7 +18,7 @@ cask "vibesurfer" do
 
   on_linux do
     on_intel do
-      sha256 "42b0a82f38d258db852cf0fbe4697c78724787cf64935d38945602d1c07e3bf8"
+      sha256 "a17423d89c4e8323602650d7f986adad96620dda160ce4edbbbe852991da2516"
       url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-x86_64-unknown-linux-gnu.tar.gz",
         verified: "github.com/frane/vibesurfer"
     end
