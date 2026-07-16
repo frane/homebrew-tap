@@ -1,16 +1,16 @@
 # Hand-authored. Future versions will regenerate this from the
 # release-pipeline outputs to mirror agented's GoReleaser flow.
 cask "vibesurfer" do
-  version "0.1.24"
+  version "0.1.25"
 
   on_macos do
     on_arm do
-      sha256 "b77ba9448238e677583fa837f017e7ca025d214e7b71d27c934df9b3de7abfe3"
+      sha256 "0aa673099043446f6de26b5dfb244597f89469cf02c861c7e63706e1588e3e35"
       url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-aarch64-apple-darwin.tar.gz",
         verified: "github.com/frane/vibesurfer"
     end
     on_intel do
-      sha256 "47332aae50164ef06fa2ba92cbd79f5af76b3028c05e88515198ab7d53e0b437"
+      sha256 "378523c632614752dd5f1f15e90bf3bc97fd4712f39df2f67336a11a68f125a9"
       url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-x86_64-apple-darwin.tar.gz",
         verified: "github.com/frane/vibesurfer"
     end
@@ -18,14 +18,14 @@ cask "vibesurfer" do
 
   on_linux do
     on_intel do
-      sha256 "29f910a7a6bcad629db848f702b69576bd7a87a3a5e1e3d7c91fff492286d52a"
+      sha256 "1ae7336acf2fea29ac1e595978bbee3567d36f156f903133ea392ee3baa461de"
       url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-x86_64-unknown-linux-gnu.tar.gz",
         verified: "github.com/frane/vibesurfer"
     end
   end
 
   name "vibesurfer"
-  desc "Agent-native headless browser (WKWebView / WebKitGTK / WebView2)."
+  desc "A browser for LLMs, not humans."
   homepage "https://github.com/frane/vibesurfer"
 
   livecheck do
