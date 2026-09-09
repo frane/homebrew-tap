@@ -1,14 +1,14 @@
 cask "grpvn" do
-  version "0.8.0"
+  version "0.9.0"
 
   on_macos do
     on_intel do
-      sha256 "ea8db39f3dffaf41b98c815dae0d8f6e9610ec9cfc8c9c3205337c9e4fd708c9"
+      sha256 "83c591983d0beb4070b74aeab6c1dde9840a7241380e125e7f667e8ce9eae43d"
       url "https://github.com/frane/grpvn/releases/download/v#{version}/grpvn_#{version}_darwin_x86_64.tar.gz",
         verified: "github.com/frane/grpvn"
     end
     on_arm do
-      sha256 "72bea3ff06d67c3aa53f27f17e1f10195461e2b5936f04534f18b137dc3c83c1"
+      sha256 "5f724ef92a9bce793614d1d0fb7b6281fd526c2d4b5030622d1a80991ff8e2ce"
       url "https://github.com/frane/grpvn/releases/download/v#{version}/grpvn_#{version}_darwin_arm64.tar.gz",
         verified: "github.com/frane/grpvn"
     end
@@ -16,12 +16,12 @@ cask "grpvn" do
 
   on_linux do
     on_intel do
-      sha256 "eba22437d419bcc6e9a5fb9039dda7d34f6aedd61a5d34ac215f78d1864142f9"
+      sha256 "664b867a54bd9e9621e2e76b47580010384a4d1875ed238721fb759e7afc57de"
       url "https://github.com/frane/grpvn/releases/download/v#{version}/grpvn_#{version}_linux_x86_64.tar.gz",
         verified: "github.com/frane/grpvn"
     end
     on_arm do
-      sha256 "066df0403da012a0bda14ae3363e8d8d39eb99d544f28a8260743b757a2277cd"
+      sha256 "c98d93c2a4c77ac2f9f6be19aaa871e15a6f21da220f035dd6ef753be20b1b94"
       url "https://github.com/frane/grpvn/releases/download/v#{version}/grpvn_#{version}_linux_arm64.tar.gz",
         verified: "github.com/frane/grpvn"
     end
