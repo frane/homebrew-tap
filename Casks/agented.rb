@@ -33,12 +33,12 @@ cask "agented" do
 
   binary "ae"
 
-  postflight do
-    if OS.mac?
+  postflight_steps do
+    on_macos do
       # Release tarballs are not codesigned. Strip the quarantine xattr
       # so macOS Sequoia Gatekeeper does not SIGKILL the binary on first
       # invocation. See https://github.com/frane/agented v0.3.6 notes.
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/ae"]
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/ae"]
     end
   end
 

@@ -6,21 +6,18 @@ cask "vibesurfer" do
   on_macos do
     on_arm do
       sha256 "270923bc54686f4ab32fbe40a9fb12868ec5b03672d86a2da87e7ab8a8c04f5d"
-      url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-aarch64-apple-darwin.tar.gz",
-        verified: "github.com/frane/vibesurfer"
+      url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-aarch64-apple-darwin.tar.gz"
     end
     on_intel do
       sha256 "11e805760a57409881373c7543e422996cfb880de469fbd500279875f224c54e"
-      url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-x86_64-apple-darwin.tar.gz",
-        verified: "github.com/frane/vibesurfer"
+      url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-x86_64-apple-darwin.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
       sha256 "1a2fc4acca818daba3ad57d72dd05e5b429598768bfa0ec7baf878674af77acb"
-      url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-x86_64-unknown-linux-gnu.tar.gz",
-        verified: "github.com/frane/vibesurfer"
+      url "https://github.com/frane/vibesurfer/releases/download/v#{version}/vs-v#{version}-x86_64-unknown-linux-gnu.tar.gz"
     end
   end
 
@@ -34,11 +31,11 @@ cask "vibesurfer" do
 
   binary "vs"
 
-  postflight do
-    if OS.mac?
+  postflight_steps do
+    on_macos do
       # Release tarballs are not codesigned. Strip the quarantine xattr
       # so macOS Gatekeeper does not block the binary on first launch.
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/vs"]
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/vs"]
     end
   end
 
